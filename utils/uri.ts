@@ -87,7 +87,10 @@ export async function parseOptionsFromUri(
       user: uri.user || uri.params.user,
     };
   } catch (e) {
-    throw new ConnectionParamsError("Could not parse the connection string", e);
+    throw new ConnectionParamsError(
+      "Could not parse the connection string",
+      e as Error,
+    );
   }
 
   if (!["postgres", "postgresql"].includes(postgres_uri.driver)) {
