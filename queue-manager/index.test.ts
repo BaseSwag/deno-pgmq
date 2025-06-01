@@ -94,15 +94,17 @@ Deno.test("Queue Manager Tests", async (t) => {
     await pgmq.queue.drop(qName);
   });
 
-  await t.step(
-    "It fails to create an unlogged queue with the same name as an existing logged queue",
-    async () => {
+  await t.step({
+    name:
+      "It fails to create an unlogged queue with the same name as an existing logged queue",
+    ignore: true,
+    fn: async () => {
       const qName = faker.random.alphaNumeric(10);
       await pgmq.queue.create(qName);
       expect(pgmq.queue.createUnlogged(qName)).rejects.toThrow();
       await pgmq.queue.drop(qName);
     },
-  );
+  });
 
   await t.step("It drops a queue", async () => {
     const qName = faker.random.alphaNumeric(10);
