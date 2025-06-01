@@ -9,7 +9,7 @@ export class MsgManager {
   public async send<T>(q: string, msg: T, delay = 0): Promise<number> {
     using client = await this.pool.connect();
     const res = await client.queryObject<{ send: number }>(
-      "SELECT * FROM pgmq.send($1, $2, $3)",
+      "SELECT * FROM pgmq.send($1, $2, $3::int)",
       [q, JSON.stringify(msg), delay],
     );
     return res.rows[0].send;
@@ -23,7 +23,7 @@ export class MsgManager {
   ): Promise<number[]> {
     using client = await this.pool.connect();
     const res = await client.queryObject<{ send_batch: number }>(
-      "SELECT * FROM pgmq.send_batch($1, $2::jsonb[], $3)",
+      "SELECT * FROM pgmq.send_batch($1, $2::jsonb[], $3::int)",
       [q, msgs.map((m) => JSON.stringify(m)), delay],
     );
     return res.rows.flatMap((s) => s.send_batch);
