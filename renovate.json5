@@ -4,5 +4,6 @@
     "config:recommended",
     "group:denoMonorepo",
     "github>Omochice/renovate-config:deno",
+    ":automergeMinor",
   ],
 }
