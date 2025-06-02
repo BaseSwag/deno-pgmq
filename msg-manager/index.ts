@@ -1,4 +1,4 @@
-import type { Pool } from "https://deno.land/x/postgres@v0.19.3/mod.ts";
+import type { Pool } from "https://deno.land/x/postgres@v0.19.5/mod.ts";
 import { parseDbMessage } from "./helpers.ts";
 import type { DbMessage, Message } from "./types.ts";
 

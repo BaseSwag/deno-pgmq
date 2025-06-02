@@ -1,9 +1,9 @@
 import type {
   ClientOptions,
   TLSOptions,
-} from "https://deno.land/x/postgres@v0.19.3/mod.ts";
-import { ConnectionParamsError } from "https://deno.land/x/postgres@v0.19.3/client/error.ts";
-import { parseConnectionUri } from "https://deno.land/x/postgres@v0.19.3/utils/utils.ts";
+} from "https://deno.land/x/postgres@v0.19.5/mod.ts";
+import { ConnectionParamsError } from "https://deno.land/x/postgres@v0.19.5/client/error.ts";
+import { parseConnectionUri } from "https://deno.land/x/postgres@v0.19.5/utils/utils.ts";
 import { isAbsolute } from "https://deno.land/std@0.224.0/path/is_absolute.ts";
 
 /** https://www.postgresql.org/docs/14/libpq-ssl.html#LIBPQ-SSL-PROTECTION */
