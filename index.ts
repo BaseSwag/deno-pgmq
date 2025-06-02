@@ -1,4 +1,4 @@
-import { Pool } from "https://deno.land/x/postgres@v0.19.3/mod.ts";
+import { Pool } from "https://deno.land/x/postgres@v0.19.5/mod.ts";
 // Automatically load environment variables from a `.env` file
 import "jsr:@std/dotenv/load";
 
